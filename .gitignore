@@ -1,0 +1,14 @@
+# Build artifacts
+.gradle/
+build/
+gradle-home/
+android/app/build/
+android/build/
+*.log
+
+# Local secret config (template provided as config.user.json.example)
+relay/config.user.json
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">远程开机</string>
+    <string name="hint_name">设备名称（如：我的台式机）</string>
+    <string name="hint_mac">MAC 地址（如：AA:BB:CC:DD:EE:FF）</string>
+    <string name="hint_broadcast">局域网广播地址（默认 255.255.255.255）</string>
+    <string name="hint_port">端口（默认 9）</string>
+    <string name="hint_relay">中继地址（留空=本机直连，如 https://你的域名:8080/wake）</string>
+    <string name="hint_token">中继令牌（与中继服务器一致）</string>
+    <string name="add_device">添加设备</string>
+    <string name="edit_device">编辑设备</string>
+    <string name="save">保存</string>
+    <string name="wake">唤醒</string>
+    <string name="delete">删除</string>
+    <string name="empty_tip">还没有设备，点右下角 + 添加一台电脑</string>
+</resources>

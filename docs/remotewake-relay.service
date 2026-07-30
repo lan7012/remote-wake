@@ -1,0 +1,15 @@
+[Unit]
+Description=RemoteWake WoL Relay
+After=network.target
+
+[Service]
+Type=simple
+# 改成你实际存放 relay_server.py 的目录和 python 路径
+WorkingDirectory=/opt/remotewake/relay
+ExecStart=/usr/bin/python3 /opt/remotewake/relay/relay_server.py --config /opt/remotewake/relay/config.json
+Restart=on-failure
+RestartSec=5
+User=pi
+
+[Install]
+WantedBy=multi-user.target

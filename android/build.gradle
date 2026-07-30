@@ -1,0 +1,12 @@
+// 离线构建：用 buildscript + apply plugin（而非 plugins{} DSL），
+// 直接解析 AGP / Kotlin 的实现 jar（已缓存），避免插件 marker 离线解析问题。
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22'
+    }
+}
