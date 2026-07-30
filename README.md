@@ -66,7 +66,7 @@
    ```json
    {
      "token": "在这里填你自己生成的强随机token",
-     "devices": { "pc1": "D4:5D:64:AD:0C:6D" }
+     "devices": { "pc1": "AA:BB:CC:DD:EE:FF" }
    }
    ```
    - token 生成示例（在电脑或平板上）：`python -c "import secrets;print(secrets.token_urlsafe(36))"`
