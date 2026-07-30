@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" font-family="'Segoe UI', 'Microsoft YaHei', Arial, sans-serif">
+  <rect x="0" y="0" width="820" height="460" fill="#f7f9fc"/>
+  <text x="410" y="34" font-size="22" font-weight="700" fill="#1f2d3d" text-anchor="middle">远程开机 / 本地唤醒 — 架构与链路</text>
+  <text x="410" y="58" font-size="13" fill="#5a6b7b" text-anchor="middle">手机（任意网络）→ 平板中继（Termux）→ UDP 魔法包 → 电脑（WoL）</text>
+
+  <!-- Phone -->
+  <rect x="40" y="110" width="170" height="120" rx="12" fill="#e8f1ff" stroke="#2f6fed" stroke-width="2"/>
+  <text x="125" y="140" font-size="15" font-weight="700" fill="#1f2d3d" text-anchor="middle">安卓手机</text>
+  <text x="125" y="162" font-size="12" fill="#3a4a5a" text-anchor="middle">RemoteWake App</text>
+  <text x="125" y="186" font-size="11" fill="#5a6b7b" text-anchor="middle">添加设备：</text>
+  <text x="125" y="204" font-size="11" fill="#5a6b7b" text-anchor="middle">http://平板IP:8080</text>
+  <text x="125" y="222" font-size="11" fill="#5a6b7b" text-anchor="middle">MAC = 电脑网卡</text>
+
+  <!-- Tablet relay -->
+  <rect x="325" y="110" width="170" height="120" rx="12" fill="#fff3e0" stroke="#e8861a" stroke-width="2"/>
+  <text x="410" y="140" font-size="15" font-weight="700" fill="#1f2d3d" text-anchor="middle">安卓平板（常开）</text>
+  <text x="410" y="162" font-size="12" fill="#3a4a5a" text-anchor="middle">Termux + Python 中继</text>
+  <text x="410" y="186" font-size="11" fill="#5a6b7b" text-anchor="middle">relay_server.py :8080</text>
+  <text x="410" y="204" font-size="11" fill="#5a6b7b" text-anchor="middle">校验 token / MAC</text>
+  <text x="410" y="222" font-size="11" fill="#5a6b7b" text-anchor="middle">关电池优化即可</text>
+
+  <!-- PC -->
+  <rect x="610" y="110" width="170" height="120" rx="12" fill="#e9f9ee" stroke="#27a35a" stroke-width="2"/>
+  <text x="695" y="140" font-size="15" font-weight="700" fill="#1f2d3d" text-anchor="middle">华硕电脑</text>
+  <text x="695" y="162" font-size="12" fill="#3a4a5a" text-anchor="middle">被唤醒目标</text>
+  <text x="695" y="186" font-size="11" fill="#5a6b7b" text-anchor="middle">收到魔法包开机</text>
+  <text x="695" y="204" font-size="11" fill="#5a6b7b" text-anchor="middle">BIOS: 开 PCI-E 唤醒</text>
+  <text x="695" y="222" font-size="11" fill="#5a6b7b" text-anchor="middle">关 ErP Ready</text>
+
+  <!-- Arrow 1 -->
+  <line x1="212" y1="170" x2="320" y2="170" stroke="#2f6fed" stroke-width="2.5"/>
+  <polygon points="320,170 310,165 310,175" fill="#2f6fed"/>
+  <text x="266" y="162" font-size="11" fill="#2f6fed" text-anchor="middle">HTTPS/HTTP</text>
+  <text x="266" y="188" font-size="11" fill="#2f6fed" text-anchor="middle">Tailscale / 任意网络</text>
+
+  <!-- Arrow 2 -->
+  <line x1="497" y1="170" x2="605" y2="170" stroke="#e8861a" stroke-width="2.5"/>
+  <polygon points="605,170 595,165 595,175" fill="#e8861a"/>
+  <text x="551" y="162" font-size="11" fill="#e8861a" text-anchor="middle">UDP 魔法包</text>
+  <text x="551" y="188" font-size="11" fill="#e8861a" text-anchor="middle">局域网广播</text>
+
+  <!-- Requirement notes -->
+  <rect x="40" y="270" width="370" height="160" rx="10" fill="#ffffff" stroke="#cdd6e0" stroke-width="1.5"/>
+  <text x="58" y="296" font-size="14" font-weight="700" fill="#1f2d3d">电脑端需设置</text>
+  <text x="58" y="320" font-size="12" fill="#3a4a5a">• BIOS：Power On By PCI-E = Enabled</text>
+  <text x="58" y="342" font-size="12" fill="#3a4a5a">• BIOS：ErP Ready = Disabled（关机保电）</text>
+  <text x="58" y="364" font-size="12" fill="#3a4a5a">• Windows：关闭「快速启动」</text>
+  <text x="58" y="386" font-size="12" fill="#3a4a5a">• 网卡：允许此设备唤醒计算机</text>
+  <text x="58" y="408" font-size="12" fill="#3a4a5a">• Wake on Magic Packet = Enabled</text>
+
+  <rect x="430" y="270" width="350" height="160" rx="10" fill="#ffffff" stroke="#cdd6e0" stroke-width="1.5"/>
+  <text x="448" y="296" font-size="14" font-weight="700" fill="#1f2d3d">中继 &amp; 手机端</text>
+  <text x="448" y="320" font-size="12" fill="#3a4a5a">• 平板：Termux + Python（零依赖）</text>
+  <text x="448" y="342" font-size="12" fill="#3a4a5a">• config.user.json 填 MAC + token</text>
+  <text x="448" y="364" font-size="12" fill="#3a4a5a">• 平板关 Termux/Tailscale 电池优化</text>
+  <text x="448" y="386" font-size="12" fill="#3a4a5a">• 手机 App 中继地址填 http://IP:8080</text>
+  <text x="448" y="408" font-size="12" fill="#3a4a5a">• 外网用 Tailscale 互联，免端口转发</text>
+</svg>
