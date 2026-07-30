@@ -20,6 +20,10 @@
 
 ---
 
+## 演示
+
+![演示](docs/demo.gif)
+
 ## 二、电脑端 BIOS 需要设置什么（以华硕主板为例）
 
 进入 BIOS（开机按 **Del** 或 **F2** → 按 **F7** 进高级模式），路径 **Advanced → APM Configuration**：
